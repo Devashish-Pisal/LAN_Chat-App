@@ -39,7 +39,8 @@ public class LobbyController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle){
         Client c = Client.getClientInstance();
         emptyUsernameField.setText(c.getUsername());
-
+        Message msg = new Message("GET_ROOMS_LIST", c.getUsername());
+        c.sendMessage(msg);
     }
 
     @FXML

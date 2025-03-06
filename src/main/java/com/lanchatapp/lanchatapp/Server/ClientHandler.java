@@ -114,7 +114,7 @@ public class ClientHandler implements Runnable{
                     sendMessageInRoom("LOBBY", msg2);
                     Message msg4 = new Message("ROOM_MESSAGE", "Server : " + username + " created room '" + data.getRoomName() + "'! \n" );
                     sendMessageInRoom(data.getRoomName(),msg4);
-                    Message msg5 = new Message("UPDATE_ONLINE_ROOMS", SessionManager.getInstance().createOnlineRoomList());
+                    Message msg5 = new Message("UPDATE_ONLINE_ROOMS",SessionManager.getInstance().createOnlineRoomList());
                     sendMessageInRoom("LOBBY",msg5);
                 }
             }else if(type.equals("ROOM_MESSAGE_REQUEST")){
@@ -123,6 +123,9 @@ public class ClientHandler implements Runnable{
             }else if(type.equals("GET_ALL_ROOMS")){
                 Message message = new Message("JOIN_CHAT_ROOM_LIST", SessionManager.getInstance().createOnlineRoomList());
                 sendMessage(message);
+            }else if(type.equals("GET_ROOMS_LIST")){
+                Message msg2 = new Message("UPDATE_ONLINE_ROOMS",SessionManager.getInstance().createOnlineRoomList());
+                sendMessageInRoom("LOBBY",msg2);
             }
         }
     }

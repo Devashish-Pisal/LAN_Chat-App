@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="384.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="com.lanchatapp.lanchatapp.Controllers.JoinRoomController">
+   <children>
+      <ListView fx:id="availableRooms" layoutX="26.0" layoutY="59.0" prefHeight="347.0" prefWidth="328.0">
+         <style>
+            -fx-font-family: "Monospace";
+            -fx-font-size: 14px;
+         </style>
+      </ListView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="23.0" prefHeight="27.0" prefWidth="328.0" text="Select the room to join " textFill="#3a2def">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="warningLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="419.0" prefHeight="27.0" prefWidth="328.0" textFill="#f41717">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="backToLobbyButton" layoutX="145.0" layoutY="460.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="109.0" text="Back to Lobby" />
+   </children>
+</Pane>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<?import javafx.scene.control.TextField?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="571.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.lanchatapp.lanchatapp.Controllers.LobbyController">
+   <children>
+      <TextArea fx:id="globalServerTextArea" editable="false" layoutX="320.0" layoutY="52.0" prefHeight="456.0" prefWidth="386.0" wrapText="true" />
+      <TextArea fx:id="inputMessageTextArea" layoutX="320.0" layoutY="520.0" prefHeight="20.0" prefWidth="295.0" promptText="You :" wrapText="true" />
+      <Button fx:id="sendButton" layoutX="634.0" layoutY="520.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="73.0" text="Send" onAction="#onSendButtonClick"/>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="320.0" layoutY="7.0" prefHeight="40.0" prefWidth="386.0" text="GLOBAL SERVER">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="chatRoomsTextArea" editable="false" layoutX="15.0" layoutY="59.0" prefHeight="316.0" prefWidth="278.0" wrapText="true">
+         <style>
+            -fx-font-family: "Monospace";
+            -fx-font-size: 14px;
+         </style>
+      </TextArea>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="7.0" prefHeight="40.0" prefWidth="278.0" text="CHAT ROOMS">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="createChatRoomButton" layoutX="73.0" layoutY="385.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="161.0" text="Create Chat Room" onAction="#onCreateRoomButtonClick"/>
+      <Button fx:id="joinChatRoomButton" layoutX="73.0" layoutY="437.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="161.0" text="Join Chat Room" onAction="#onJoinChatButtonClick"/>
+      <Text fill="#093aff" layoutX="14.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged In As : " wrappingWidth="100.99999999999989">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="emptyUsernameField" fill="#093aff" layoutX="115.0" layoutY="546.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="200.9999542236327">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="609.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="com.lanchatapp.lanchatapp.Controllers.RoomController">
+   <children>
+      <TextArea fx:id="chatTextArea" editable="false" layoutX="237.0" layoutY="68.0" prefHeight="406.0" prefWidth="358.0" wrapText="true" />
+      <TextArea fx:id="inputTextField" layoutX="237.0" layoutY="490.0" prefHeight="40.0" prefWidth="283.0" promptText="You :" wrapText="true" />
+      <Button fx:id="sendButton" layoutX="534.0" layoutY="491.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="63.0" text="Send" onAction="#onSendButtonClick"/>
+      <ListView fx:id="membersList" layoutX="27.0" layoutY="67.0" prefHeight="406.0" prefWidth="200.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="23.0" prefHeight="32.0" prefWidth="200.0" text="ROOM MEMBERS">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="roomNameTextField" alignment="CENTER" contentDisplay="CENTER" layoutX="239.0" layoutY="23.0" prefHeight="32.0" prefWidth="358.0" textFill="#1747e1">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="leaveRoomButton" layoutX="45.0" layoutY="490.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="166.0" text="Leave Room" />
+   </children>
+</Pane>

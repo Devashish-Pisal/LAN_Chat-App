@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.PasswordField?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="287.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.lanchatapp.lanchatapp.Controllers.LoginPageController">
+   <TextField fx:id="usernameTextField" layoutX="229.0" layoutY="49.0" prefHeight="31.0" prefWidth="198.0" onMouseClicked="#clearWarningLabel"/>
+   <PasswordField fx:id="passwordTextField" layoutX="229.0" layoutY="99.0" prefHeight="31.0" prefWidth="198.0" onMouseClicked="#clearWarningLabel"/>
+   <Label fx:id="usernameLabel" alignment="CENTER" layoutX="63.0" layoutY="52.0" prefHeight="17.0" prefWidth="132.0" text="Username :">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Label>
+   <Label fx:id="passwordLabel" alignment="CENTER" layoutX="63.0" layoutY="102.0" prefHeight="17.0" prefWidth="132.0" text="Password :">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Label>
+   <Button fx:id="loginButton" layoutX="285.0" layoutY="171.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="71.0" text="Log In" onAction="#onEnterButtonClick">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Button>
+   <Label fx:id="orLabel" alignment="CENTER" layoutX="254.0" layoutY="216.0" prefHeight="17.0" prefWidth="132.0" text="OR" />
+   <Button fx:id="registerButton" layoutX="273.0" layoutY="242.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" text="Register" onAction="#onRegisterButtonClicked">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Button>
+   <Label fx:id="warningLabel" alignment="CENTER_RIGHT" layoutX="91.0" layoutY="144.0" prefHeight="17.0" prefWidth="336.0" textFill="#ff1414" />
+</Pane>

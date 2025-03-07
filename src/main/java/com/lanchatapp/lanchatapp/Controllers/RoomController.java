@@ -52,4 +52,9 @@ public class RoomController implements Initializable {
         Client c = Client.getClientInstance();
         roomNameTextField.setText(c.getCurrentRoom());
     }
+
+    @FXML
+    public void onLeaveRoomButtonClick(){
+
+    }
 }

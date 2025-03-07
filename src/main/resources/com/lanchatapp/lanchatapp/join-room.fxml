@@ -26,6 +26,6 @@ fx:controller="com.lanchatapp.lanchatapp.Controllers.JoinRoomController">
             <Font size="13.0" />
          </font>
       </Label>
-      <Button fx:id="backToLobbyButton" layoutX="145.0" layoutY="460.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="109.0" text="Back to Lobby" />
+      <Button fx:id="backToLobbyButton" layoutX="145.0" layoutY="460.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="109.0" text="Back to Lobby" onAction="#onBackToLobbyButtonClick"/>
    </children>
 </Pane>

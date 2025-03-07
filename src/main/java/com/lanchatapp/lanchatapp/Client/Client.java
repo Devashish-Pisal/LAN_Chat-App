@@ -147,6 +147,11 @@ public class Client {
                 representRoomsInLobby((HashMap<String, String>) msg.getData());
             }else if(type.equals("JOIN_CHAT_ROOM_LIST")){
                 representRoomsInJoinRoom((HashMap<String, String>) msg.getData());
+            }else if(type.equals("ROOM_JOINING_SUCCESSFUL")){
+                Platform.runLater(()->{
+                    this.currentRoom = (String) msg.getData();
+                    SceneManager.getInstance().switchScene("chat-room.fxml", "Chat-Room");
+                });
             }
         }
     }

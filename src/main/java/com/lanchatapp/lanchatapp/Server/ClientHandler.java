@@ -1,5 +1,6 @@
 package com.lanchatapp.lanchatapp.Server;
 import com.lanchatapp.lanchatapp.Messages.Message;
+import com.lanchatapp.lanchatapp.Messages.Objects.JoinRoomData;
 import com.lanchatapp.lanchatapp.Messages.Objects.RoomData;
 import com.lanchatapp.lanchatapp.Messages.Objects.UserData;
 
@@ -126,6 +127,19 @@ public class ClientHandler implements Runnable{
             }else if(type.equals("GET_ROOMS_LIST")){
                 Message msg2 = new Message("UPDATE_ONLINE_ROOMS",SessionManager.getInstance().createOnlineRoomList());
                 sendMessageInRoom("LOBBY",msg2);
+            }else if(type.equals("JOIN_ROOM")){
+                JoinRoomData data = (JoinRoomData) msg1.getData();
+                ClientHandler ch = SessionManager.getInstance().removeClientHandlerFromRoom(this.currentRoom,this.username);
+                SessionManager.getInstance().addClientToSession(data.getRoomName(),ch);
+                this.currentRoom = data.getRoomName();
+                Message msg3 = new Message("ROOM_JOINING_SUCCESSFUL",data.getRoomName());
+                sendMessage(msg3);
+                Message msg2 = new Message("UPDATE_ONLINE_ROOMS",SessionManager.getInstance().createOnlineRoomList());
+                sendMessageInRoom("LOBBY",msg2);
+                Message msg4 = new Message("ROOM_MESSAGE", "Server : " + this.username + " joined chat room!\n" );
+                sendMessageInRoom(data.getRoomName(),msg4);
+                Message msg5 = new Message("LOBBY_MESSAGE", "Server : " + this.username + " joined chat room: " + this.currentRoom +   "\n");
+                sendMessageInRoom("LOBBY", msg5);
             }
         }
     }

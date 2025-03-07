@@ -10,7 +10,7 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="384.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
 fx:controller="com.lanchatapp.lanchatapp.Controllers.JoinRoomController">
    <children>
-      <ListView fx:id="availableRooms" layoutX="26.0" layoutY="59.0" prefHeight="347.0" prefWidth="328.0">
+      <ListView fx:id="availableRooms" layoutX="26.0" layoutY="59.0" prefHeight="347.0" prefWidth="328.0" onMouseMoved="#clearWarningLabel">
          <style>
             -fx-font-family: "Monospace";
             -fx-font-size: 14px;

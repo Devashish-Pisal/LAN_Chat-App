@@ -2,6 +2,7 @@ package com.lanchatapp.lanchatapp.Client;
 
 import com.lanchatapp.lanchatapp.Controllers.*;
 import com.lanchatapp.lanchatapp.Messages.Message;
+import com.lanchatapp.lanchatapp.Messages.Objects.LogOutData;
 import com.lanchatapp.lanchatapp.SceneManager;
 import com.lanchatapp.lanchatapp.Server.UserAuthServer;
 import javafx.application.Platform;
@@ -224,6 +225,15 @@ public class Client {
     }
 
     public void handleDisconnect() {
+        try{
+            Message msg = new Message("LOG_OUT",new LogOutData(this.username,this.getCurrentRoom()));
+            sendMessage(msg);
+            in.close();
+            out.close();
+            socket.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }

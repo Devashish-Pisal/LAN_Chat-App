@@ -45,11 +45,6 @@ public class Server {
     }
 
     public static void main(String[] args){
-        //UserAuthServer.getInstance().deleteUsersTableData();
-        //UserAuthServer.getInstance().insertUser("dev", HashingAlgo.hashSHA256("dev"));
-        UserAuthServer.getInstance().changeStatusTo("dev", "LOGGED_OUT");
-        UserAuthServer.getInstance().changeStatusTo("deva", "LOGGED_OUT");
-        UserAuthServer.getInstance().changeStatusTo("dp", "LOGGED_OUT");
         Server.getServerInstance().startServer();
     }
 

@@ -1,9 +1,6 @@
 package com.lanchatapp.lanchatapp.Server;
 import com.lanchatapp.lanchatapp.Messages.Message;
-import com.lanchatapp.lanchatapp.Messages.Objects.JoinRoomData;
-import com.lanchatapp.lanchatapp.Messages.Objects.LeaveRoomData;
-import com.lanchatapp.lanchatapp.Messages.Objects.RoomData;
-import com.lanchatapp.lanchatapp.Messages.Objects.UserData;
+import com.lanchatapp.lanchatapp.Messages.Objects.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -41,7 +38,8 @@ public class ClientHandler implements Runnable{
                 handleClientMessage(msg);
             }
         }catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
+            // Once handlerDisconnect method in client is called, here we get exception, then we can disconnect clientHandler directly.
             handleClientHandlerDisconnect();
         }
     }
@@ -160,6 +158,25 @@ public class ClientHandler implements Runnable{
                 sendMessageInRoom("LOBBY",msg5);
                 Message msg6 = new Message("UPDATE_MEMBERS_LIST", SessionManager.getInstance().createMembersList(data.getRoomName()));
                 sendMessageInRoom(data.getRoomName(), msg6);
+            }else if(type.equals("LOG_OUT")){
+                LogOutData data = (LogOutData) msg1.getData();
+                Message msg2 = new Message("ROOM_MESSAGE","Server : " + data.getUsername() + " disconnected!\n");
+                sendMessageInRoom(data.getRoomName(), msg2);
+                Message msg3 = new Message("LOBBY_MESSAGE","Server : " + data.getUsername() + " disconnected!\n");
+                sendMessageInRoom("LOBBY",msg3);
+
+                /* Updating members list in chat room and room list in lobby :
+                Not working, throwing exception on server side.
+                Message msg6 = new Message("UPDATE_MEMBERS_LIST", SessionManager.getInstance().createMembersList(data.getRoomName()));
+                sendMessageInRoom(data.getRoomName(), msg6);
+                Message msg4 = new Message("UPDATE_ONLINE_ROOMS",SessionManager.getInstance().createOnlineRoomList());
+                sendMessageInRoom("LOBBY",msg4);
+                 */
+
+                UserAuthServer.getInstance().changeStatusTo(data.getUsername(),"LOGGED_OUT");
+                SessionManager.getInstance().removeClientHandlerFromRoom(data.getRoomName(),data.getUsername());
+
+                //handleClientHandlerDisconnect();
             }
         }
     }

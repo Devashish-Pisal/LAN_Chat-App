@@ -2,6 +2,7 @@ package com.lanchatapp.lanchatapp.Controllers;
 
 import com.lanchatapp.lanchatapp.Client.Client;
 import com.lanchatapp.lanchatapp.Messages.Message;
+import com.lanchatapp.lanchatapp.Messages.Objects.LeaveRoomData;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -55,6 +56,9 @@ public class RoomController implements Initializable {
 
     @FXML
     public void onLeaveRoomButtonClick(){
-
+        Client c = Client.getClientInstance();
+        LeaveRoomData data = new LeaveRoomData(c.getUsername(), c.getCurrentRoom());
+        Message msg = new Message("LEAVE_ROOM",data);
+        c.sendMessage(msg);
     }
 }

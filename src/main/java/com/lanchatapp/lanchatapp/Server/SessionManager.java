@@ -56,7 +56,11 @@ public class SessionManager {
                 result = c;
             }
         }
-        rooms.replace(room,newList);
+        if(!newList.isEmpty()) {
+            rooms.replace(room, newList);
+        }else{
+            rooms.remove(room);
+        }
         return result;
     }
 

@@ -152,6 +152,11 @@ public class Client {
                     this.currentRoom = (String) msg.getData();
                     SceneManager.getInstance().switchScene("chat-room.fxml", "Chat-Room");
                 });
+            }else if(type.equals("ROOM_LEFT_SUCCESSFULLY")){
+                this.currentRoom = "LOBBY";
+                Platform.runLater(()->{
+                    SceneManager.getInstance().switchScene("lobby.fxml","Lobby");
+                });
             }
         }
     }

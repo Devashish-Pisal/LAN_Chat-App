@@ -25,6 +25,6 @@ fx:controller="com.lanchatapp.lanchatapp.Controllers.RoomController">
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="leaveRoomButton" layoutX="45.0" layoutY="490.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="166.0" text="Leave Room" />
+      <Button fx:id="leaveRoomButton" layoutX="45.0" layoutY="490.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="166.0" text="Leave Room" onAction="#onLeaveRoomButtonClick"/>
    </children>
 </Pane>

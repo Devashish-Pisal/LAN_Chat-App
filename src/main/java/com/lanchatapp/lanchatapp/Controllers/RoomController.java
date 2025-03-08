@@ -25,7 +25,7 @@ public class RoomController implements Initializable {
     private Button leaveRoomButton;
 
     @FXML
-    private ListView<String> membersList;
+    public ListView<String> membersList;
 
     @FXML
     private Label roomNameTextField;

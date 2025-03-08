@@ -14,7 +14,12 @@ fx:controller="com.lanchatapp.lanchatapp.Controllers.RoomController">
       <TextArea fx:id="chatTextArea" editable="false" layoutX="237.0" layoutY="68.0" prefHeight="406.0" prefWidth="358.0" wrapText="true" />
       <TextArea fx:id="inputTextField" layoutX="237.0" layoutY="490.0" prefHeight="40.0" prefWidth="283.0" promptText="You :" wrapText="true" />
       <Button fx:id="sendButton" layoutX="534.0" layoutY="491.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="63.0" text="Send" onAction="#onSendButtonClick"/>
-      <ListView fx:id="membersList" layoutX="27.0" layoutY="67.0" prefHeight="406.0" prefWidth="200.0" />
+      <ListView fx:id="membersList" layoutX="27.0" layoutY="67.0" prefHeight="406.0" prefWidth="200.0">
+         <style>
+            -fx-font-family: "Monospace";
+            -fx-font-size: 14px;
+         </style>
+      </ListView>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="23.0" prefHeight="32.0" prefWidth="200.0" text="ROOM MEMBERS">
          <font>
             <Font name="System Bold" size="16.0" />

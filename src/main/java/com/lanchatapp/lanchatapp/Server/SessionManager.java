@@ -96,5 +96,16 @@ public class SessionManager {
             return result;
     }
 
+    List<String> createMembersList(String roomName){
+        List<String> list = new ArrayList<>();
+        List<ClientHandler> ch = getClientHandlerList(roomName);
+        if(ch != null) {
+            for (ClientHandler c : ch) {
+                list.add(c.getUsername());
+            }
+            return list;
+        }
+        return null;
+    }
 
 }

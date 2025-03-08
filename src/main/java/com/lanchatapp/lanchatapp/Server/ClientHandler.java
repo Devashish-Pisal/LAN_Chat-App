@@ -118,6 +118,8 @@ public class ClientHandler implements Runnable{
                     sendMessageInRoom(data.getRoomName(),msg4);
                     Message msg5 = new Message("UPDATE_ONLINE_ROOMS",SessionManager.getInstance().createOnlineRoomList());
                     sendMessageInRoom("LOBBY",msg5);
+                    Message msg6 = new Message("UPDATE_MEMBERS_LIST", SessionManager.getInstance().createMembersList(data.getRoomName()));
+                    sendMessageInRoom(data.getRoomName(), msg6);
                 }
             }else if(type.equals("ROOM_MESSAGE_REQUEST")){
                 Message message = new Message("ROOM_MESSAGE",(String) msg1.getData());
@@ -141,6 +143,8 @@ public class ClientHandler implements Runnable{
                 sendMessageInRoom(data.getRoomName(),msg4);
                 Message msg5 = new Message("LOBBY_MESSAGE", "Server : " + this.username + " joined chat room: " + this.currentRoom +   "\n");
                 sendMessageInRoom("LOBBY", msg5);
+                Message msg6 = new Message("UPDATE_MEMBERS_LIST", SessionManager.getInstance().createMembersList(data.getRoomName()));
+                sendMessageInRoom(data.getRoomName(), msg6);
             }else if(type.equals("LEAVE_ROOM")){
                 LeaveRoomData data = (LeaveRoomData) msg1.getData();
                 ClientHandler ch = SessionManager.getInstance().removeClientHandlerFromRoom(data.getRoomName(),data.getUsername());
@@ -154,6 +158,8 @@ public class ClientHandler implements Runnable{
                 sendMessageInRoom("LOBBY",msg4);
                 Message msg5 = new Message("LOBBY_MESSAGE", "Server : " + this.username + " left chat room: " + data.getRoomName() + "!\n");
                 sendMessageInRoom("LOBBY",msg5);
+                Message msg6 = new Message("UPDATE_MEMBERS_LIST", SessionManager.getInstance().createMembersList(data.getRoomName()));
+                sendMessageInRoom(data.getRoomName(), msg6);
             }
         }
     }

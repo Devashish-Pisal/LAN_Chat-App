@@ -157,21 +157,15 @@ public class Client {
                 Platform.runLater(()->{
                     SceneManager.getInstance().switchScene("lobby.fxml","Lobby");
                 });
+            }else if(type.equals("UPDATE_MEMBERS_LIST")){
+                if(msg.getData() != null) {
+                    representMembersList((List<String>) msg.getData());
+                }
             }
         }
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public String getCurrentRoom(){
-        return currentRoom;
-    }
-
-    public void handleDisconnect() {
-    }
-
+    // TEXT AREA
     private void representRoomsInLobby(HashMap<String,String> onlineRooms){
         if(currentRoom.equals("LOBBY")) {
             Platform.runLater(() -> {
@@ -191,6 +185,7 @@ public class Client {
         }
     }
 
+    // LIST VIEW
     private void representRoomsInJoinRoom(HashMap<String,String>map){
         Platform.runLater(()->{
             Object controller = SceneManager.getInstance().getController("join-room.fxml");
@@ -207,4 +202,28 @@ public class Client {
             jrc.availableRooms.getItems().addAll(roomList);
         });
     }
+
+    // LIST VIEW
+    private void representMembersList(List<String> data) {
+        Platform.runLater(()->{
+            Object controller = SceneManager.getInstance().getController("chat-room.fxml");
+            RoomController rc = (RoomController) controller;
+            rc.membersList.getItems().clear();
+            data.replaceAll(element -> element.equals(this.username) ? element + " (YOU)" : element);
+            rc.membersList.getItems().addAll(data);
+        });
+    }
+
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getCurrentRoom(){
+        return currentRoom;
+    }
+
+    public void handleDisconnect() {
+    }
+
 }
